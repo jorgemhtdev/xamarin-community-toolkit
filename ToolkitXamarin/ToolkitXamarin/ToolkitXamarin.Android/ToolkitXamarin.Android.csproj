@@ -16,7 +16,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -93,7 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ToolkitXamarin\ToolkitXamarin.csproj">
-      <Project>{C6D8B718-8B57-4D03-9CBF-BB27FB8B74AF}</Project>
+      <Project>{E3FD893C-A730-45E9-BD44-D821697437B1}</Project>
       <Name>ToolkitXamarin</Name>
     </ProjectReference>
   </ItemGroup>

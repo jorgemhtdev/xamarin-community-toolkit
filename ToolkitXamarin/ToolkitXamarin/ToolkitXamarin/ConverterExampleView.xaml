@@ -1,0 +1,434 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    Title="Safe Area"
+    ios:Page.UseSafeArea="true"
+    xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ToolkitXamarin.ConverterExampleView">
+    <ContentPage.Resources>
+
+        <!--  BoolToObjectConverter  -->
+        <xct:BoolToObjectConverter
+            x:Key="boolToObjectConverter"
+            x:TypeArguments="x:String"
+            FalseObject="Es un false"
+            TrueObject="Es un true" />
+
+        <x:Boolean x:Key="valueBoolToObjectConverter">true</x:Boolean>
+
+        <!--  ByteArrayToImageSourceConverter  -->
+        <xct:ByteArrayToImageSourceConverter x:Key="byteArrayToImageSourceConverter" />
+
+        <!--  DateTimeOffsetConverter  -->
+
+        <xct:DateTimeOffsetConverter x:Key="dateTimeOffsetConverter" />
+        <sys:DateTimeOffset x:Key="valueDateTimeOffsetConverter">
+            <x:Arguments>
+                <x:Int32>2021</x:Int32>
+                <x:Int32>2</x:Int32>
+                <x:Int32>7</x:Int32>
+                <x:Int32>0</x:Int32>
+                <x:Int32>0</x:Int32>
+                <x:Int32>0</x:Int32>
+                <x:TimeSpan />
+            </x:Arguments>
+        </sys:DateTimeOffset>
+
+        <!--  DoubleToIntConverter  -->
+
+        <xct:DoubleToIntConverter x:Key="doubleToIntConverter" />
+        <x:Double x:Key="valueDoubleToIntConverter">1.25</x:Double>
+
+        <!--  EqualConverter  -->
+
+        <xct:EqualConverter x:Key="equalConverter" />
+        <x:String x:Key="valueEqualConverter">Dev</x:String>
+
+        <!--  IndexToArrayItemConverter  -->
+
+        <xct:IndexToArrayItemConverter x:Key="indexToArrayItemConverter" />
+        <x:Int32 x:Key="valueIndexToArrayItemConverter">2</x:Int32>
+        <x:Array x:Key="arrayIndexToArrayItemConverter" Type="{x:Type x:String}">
+            <x:String>value0</x:String>
+            <x:String>value1</x:String>
+            <x:String>value2</x:String>
+        </x:Array>
+
+        <!--  IntToBoolConverter  -->
+
+        <xct:IntToBoolConverter x:Key="intToBoolConverter" />
+        <x:Int32 x:Key="valueIntToBoolConverter">0</x:Int32>
+
+        <!--  InvertedBoolConverter  -->
+
+        <xct:InvertedBoolConverter x:Key="invertedBoolConverter" />
+        <x:Boolean x:Key="valueInvertedBoolConverter">true</x:Boolean>
+
+        <!--  IsNotNullOrEmptyConverter  -->
+
+        <xct:IsNotNullOrEmptyConverter x:Key="isNotNullOrEmptyConverter" />
+        <x:String x:Key="valueIsNotNullOrEmptyConverter">hola</x:String>
+
+        <!--  IsNullOrEmptyConverter  -->
+
+        <xct:IsNullOrEmptyConverter x:Key="isNullOrEmptyConverter" />
+        <x:String x:Key="valueIsNullOrEmptyConverter" />
+
+        <!--  ItemSelectedEventArgsConverter  -->
+
+        <xct:ItemSelectedEventArgsConverter x:Key="itemSelectedEventArgsConverter" />
+
+        <!--  ItemTappedEventArgsConverter  -->
+
+        <xct:ItemTappedEventArgsConverter x:Key="itemTappedEventArgsConverter" />
+
+        <!--  ListIsNotNullOrEmptyConverter  -->
+
+        <xct:ListIsNotNullOrEmptyConverter x:Key="listIsNotNullOrEmptyConverter" />
+
+        <x:Array x:Key="valueListIsNotNullOrEmptyConverter" Type="{x:Type x:Int32}">
+            <x:Int32>21</x:Int32>
+            <x:Int32>32</x:Int32>
+            <x:Int32>33</x:Int32>
+        </x:Array>
+
+        <!--  ListIsNullOrEmptyConverter  -->
+        <xct:ListIsNullOrEmptyConverter x:Key="listIsNullOrEmptyConverter" />
+
+        <x:Array x:Key="valueListIsNullOrEmptyConverter" Type="{x:Type x:Int32}">
+            <x:Int32>0</x:Int32>
+        </x:Array>
+
+        <!--  ListToStringConverter  -->
+
+        <xct:ListToStringConverter x:Key="listToStringConverter" Separator="; " />
+        <x:Array x:Key="valueListToStringConverter" Type="{x:Type x:String}">
+            <x:String>Value 1</x:String>
+            <x:String>Value 2</x:String>
+            <x:String>Value 3</x:String>
+        </x:Array>
+
+        <!--  MultiConverter  -->
+
+        <xct:MultiConverter x:Key="multiConverter">
+            <xct:EqualConverter />
+            <xct:BoolToObjectConverter
+                x:TypeArguments="x:String"
+                FalseObject="No son iguales"
+                TrueObject="Son iguales" />
+        </xct:MultiConverter>
+        <x:Array x:Key="multiParams" Type="{x:Type xct:MultiConverterParameter}">
+            <xct:MultiConverterParameter ConverterType="{x:Type xct:EqualConverter}" Value="value" />
+            <xct:MultiConverterParameter ConverterType="{x:Type xct:BoolToObjectConverter}" />
+        </x:Array>
+        <x:String x:Key="valueMultiConverter">values</x:String>
+
+        <!--  NotEqualConverter  -->
+
+        <xct:NotEqualConverter x:Key="notEqualConverter" />
+        <x:String x:Key="valueNotEqualConverter">value</x:String>
+
+        <!--  TextCaseConverter  -->
+
+        <xct:TextCaseConverter x:Key="textCaseConverter" Type="Lower" />
+        <x:String x:Key="valueTextCaseConverter">DeV</x:String>
+
+        <!--  TimeSpanToDoubleConverter  -->
+
+        <xct:TimeSpanToDoubleConverter x:Key="timeSpanToDoubleConverter" />
+        <sys:TimeSpan x:Key="valueTimeSpanToDoubleConverter">
+            <x:Arguments>
+                <x:Int32>12</x:Int32>
+                <x:Int32>30</x:Int32>
+                <x:Int32>10</x:Int32>
+            </x:Arguments>
+        </sys:TimeSpan>
+
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="20" Spacing="25">
+
+                <!--  BoolToObjectConverter  -->
+
+                <Label Text="BoolToObjectConverter" TextColor="DarkCyan" />
+
+                <Label
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding ., Source={StaticResource valueBoolToObjectConverter}, Converter={StaticResource boolToObjectConverter}}"
+                    VerticalTextAlignment="Center" />
+
+                <BoxView
+                    Margin="20,0"
+                    BackgroundColor="DarkCyan"
+                    HeightRequest="1" />
+
+                <!--  ByteArrayToImageSourceConverter  -->
+
+                <Label Text="ByteArrayToImageSourceConverter" TextColor="DarkCyan" />
+
+                <Image
+                    HorizontalOptions="Center"
+                    Source="{Binding ImageBytes, Converter={StaticResource byteArrayToImageSourceConverter}}"
+                    VerticalOptions="Center" />
+
+                <BoxView
+                    Margin="20,0"
+                    BackgroundColor="DarkCyan"
+                    HeightRequest="1" />
+
+                <!--  DateTimeOffsetConverter  -->
+
+                <Label Text="DateTimeOffsetConverter" TextColor="DarkCyan" />
+
+                <DatePicker
+                    Date="{Binding ., Source={StaticResource valueDateTimeOffsetConverter}, Converter={StaticResource dateTimeOffsetConverter}}"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+
+                <BoxView
+                    Margin="20,0"
+                    BackgroundColor="DarkCyan"
+                    HeightRequest="1" />
+
+                <!--  DoubleToIntConverter  -->
+
+                <Label Text="DoubleToIntConverter" TextColor="DarkCyan" />
+
+                <Label
+                    HorizontalOptions="Center"
+                    Text="{Binding ., Source={StaticResource valueDoubleToIntConverter}, Converter={StaticResource doubleToIntConverter}}"
+                    VerticalOptions="Center" />
+
+                <BoxView
+                    Margin="20,0"
+                    BackgroundColor="DarkCyan"
+                    HeightRequest="1" />
+
+                <!--  EqualConverter  -->
+
+                <Label Text="EqualConverter" TextColor="DarkCyan" />
+
+                <Label
+                    HorizontalOptions="Center"
+                    Text="{Binding ., Source={StaticResource valueEqualConverter}, Converter={StaticResource equalConverter}, ConverterParameter=Dev}"
+                    VerticalOptions="Center" />
+
+                <BoxView
+                    Margin="20,0"
+                    BackgroundColor="DarkCyan"
+                    HeightRequest="1" />
+
+                <!--  IndexToArrayItemConverter  -->
+
+                <Label Text="IndexToArrayItemConverter" TextColor="DarkCyan" />
+
+                <Label
+                    HorizontalOptions="Center"
+                    Text="{Binding ., Source={StaticResource valueIndexToArrayItemConverter}, Converter={StaticResource indexToArrayItemConverter}, ConverterParameter={StaticResource arrayIndexToArrayItemConverter}}"
+                    VerticalOptions="Center" />
+
+                <BoxView
+                    Margin="20,0"
+                    BackgroundColor="DarkCyan"
+                    HeightRequest="1" />
+
+                <!--  IntToBoolConverter  -->
+
+                <Label Text="IntToBoolConverter" TextColor="DarkCyan" />
+
+                <Label
+                    HorizontalOptions="Center"
+                    Text="{Binding ., Source={StaticResource valueIntToBoolConverter}, Converter={StaticResource intToBoolConverter}}"
+                    VerticalOptions="Center" />
+
+                <BoxView
+                    Margin="20,0"
+                    BackgroundColor="DarkCyan"
+                    HeightRequest="1" />
+
+                <!--  InvertedBoolConverter  -->
+
+                <Label Text="InvertedBoolConverter" TextColor="DarkCyan" />
+
+                <Label
+                    HorizontalOptions="Center"
+                    Text="{Binding ., Source={StaticResource valueInvertedBoolConverter}, Converter={StaticResource invertedBoolConverter}}"
+                    VerticalOptions="Center" />
+
+                <BoxView
+                    Margin="20,0"
+                    BackgroundColor="DarkCyan"
+                    HeightRequest="1" />
+
+                <!--  IsNotNullOrEmptyConverter  -->
+
+                <Label Text="IsNotNullOrEmptyConverter" TextColor="DarkCyan" />
+
+                <Label
+                    HorizontalOptions="Center"
+                    Text="{Binding ., Source={StaticResource valueIsNotNullOrEmptyConverter}, Converter={StaticResource isNotNullOrEmptyConverter}}"
+                    VerticalOptions="Center" />
+
+                <BoxView
+                    Margin="20,0"
+                    BackgroundColor="DarkCyan"
+                    HeightRequest="1" />
+
+                <!--  IsNullOrEmptyConverter  -->
+
+                <Label Text="IsNullOrEmptyConverter" TextColor="DarkCyan" />
+
+                <Label
+                    HorizontalOptions="Center"
+                    Text="{Binding ., Source={StaticResource valueIsNullOrEmptyConverter}, Converter={StaticResource isNullOrEmptyConverter}}"
+                    VerticalOptions="Center" />
+
+                <BoxView
+                    Margin="20,0"
+                    BackgroundColor="DarkCyan"
+                    HeightRequest="1" />
+
+                <!--  ItemSelectedEventArgsConverter  -->
+
+                <Label Text="ItemSelectedEventArgsConverter" TextColor="DarkCyan" />
+
+                <ListView>
+                    <ListView.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>value0</x:String>
+                            <x:String>value1</x:String>
+                            <x:String>value2</x:String>
+                        </x:Array>
+                    </ListView.ItemsSource>
+                    <ListView.Behaviors>
+                        <xct:EventToCommandBehavior
+                            Command="{Binding ItemSelectedCommand}"
+                            EventArgsConverter="{StaticResource itemSelectedEventArgsConverter}"
+                            EventName="ItemSelected" />
+                    </ListView.Behaviors>
+                </ListView>
+
+                <BoxView
+                    Margin="20,0"
+                    BackgroundColor="DarkCyan"
+                    HeightRequest="1" />
+
+                <!--  ItemTappedEventArgsConverter  -->
+
+                <Label Text="ItemTappedEventArgsConverter" TextColor="DarkCyan" />
+
+                <ListView>
+                    <ListView.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>value0</x:String>
+                            <x:String>value1</x:String>
+                            <x:String>value2</x:String>
+                        </x:Array>
+                    </ListView.ItemsSource>
+                    <ListView.Behaviors>
+                        <xct:EventToCommandBehavior
+                            Command="{Binding ItemTappedCommand}"
+                            EventArgsConverter="{StaticResource itemTappedEventArgsConverter}"
+                            EventName="ItemTapped" />
+                    </ListView.Behaviors>
+                </ListView>
+
+                <BoxView
+                    Margin="20,0"
+                    BackgroundColor="DarkCyan"
+                    HeightRequest="1" />
+
+                <!--  ListIsNotNullOrEmptyConverter  -->
+
+                <Label Text="ListIsNotNullOrEmptyConverter" TextColor="DarkCyan" />
+
+                <Label
+                    HorizontalOptions="Center"
+                    Text="{Binding ., Source={StaticResource valueListIsNotNullOrEmptyConverter}, Converter={StaticResource listIsNotNullOrEmptyConverter}}"
+                    VerticalOptions="Center" />
+
+                <BoxView
+                    Margin="20,0"
+                    BackgroundColor="DarkCyan"
+                    HeightRequest="1" />
+
+                <!--  ListIsNullOrEmptyConverter  -->
+
+                <Label Text="ListIsNullOrEmptyConverter" TextColor="DarkCyan" />
+
+                <Label
+                    HorizontalOptions="Center"
+                    Text="{Binding ., Source={StaticResource valueListIsNullOrEmptyConverter}, Converter={StaticResource listIsNullOrEmptyConverter}}"
+                    VerticalOptions="Center" />
+
+                <BoxView
+                    Margin="20,0"
+                    BackgroundColor="DarkCyan"
+                    HeightRequest="1" />
+
+                <!--  ListToStringConverter  -->
+
+                <Label Text="ListToStringConverter" TextColor="DarkCyan" />
+
+                <Label
+                    HorizontalOptions="Center"
+                    Text="{Binding ., Source={StaticResource valueListToStringConverter}, Converter={StaticResource listToStringConverter}}"
+                    VerticalOptions="Center" />
+
+                <BoxView
+                    Margin="20,0"
+                    BackgroundColor="DarkCyan"
+                    HeightRequest="1" />
+
+                <!--  MultiConverter  -->
+
+                <Label Text="MultiConverter" TextColor="DarkCyan" />
+
+                <Label
+                    HorizontalOptions="Center"
+                    Text="{Binding ., Source={StaticResource valueMultiConverter}, Converter={StaticResource multiConverter}, ConverterParameter={StaticResource multiParams}}"
+                    VerticalOptions="Center" />
+
+                <BoxView
+                    Margin="20,0"
+                    BackgroundColor="DarkCyan"
+                    HeightRequest="1" />
+
+                <!--  NotEqualConverter  -->
+
+                <Label Text="NotEqualConverter" TextColor="DarkCyan" />
+
+                <Label
+                    HorizontalOptions="Center"
+                    Text="{Binding ., Source={StaticResource valueNotEqualConverter}, Converter={StaticResource notEqualConverter}, ConverterParameter=value}"
+                    VerticalOptions="Center" />
+
+                <BoxView
+                    Margin="20,0"
+                    BackgroundColor="DarkCyan"
+                    HeightRequest="1" />
+
+                <!--  TextCaseConverter  -->
+
+                <Label Text="TextCaseConverter" TextColor="DarkCyan" />
+
+                <Label
+                    HorizontalOptions="Center"
+                    Text="{Binding ., Source={StaticResource valueTextCaseConverter}, Converter={StaticResource textCaseConverter}}"
+                    VerticalOptions="Center" />
+
+                <!--  TimeSpanToDoubleConverter  -->
+
+                <Label Text="TimeSpanToDoubleConverter" TextColor="DarkCyan" />
+
+                <Label
+                    HorizontalOptions="Center"
+                    Text="{Binding ., Source={StaticResource valueTimeSpanToDoubleConverter}, Converter={StaticResource timeSpanToDoubleConverter}}"
+                    VerticalOptions="Center" />
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
