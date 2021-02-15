@@ -126,13 +126,13 @@
     <PackageReference Include="Xamarin.CommunityToolkit">
       <Version>1.0.2</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.1931" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\ToolkitXamarin\ToolkitXamarin.csproj">
-      <Project>{C6D8B718-8B57-4D03-9CBF-BB27FB8B74AF}</Project>
+      <Project>{E3FD893C-A730-45E9-BD44-D821697437B1}</Project>
       <Name>ToolkitXamarin</Name>
     </ProjectReference>
   </ItemGroup>

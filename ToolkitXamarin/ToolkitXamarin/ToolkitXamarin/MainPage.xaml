@@ -1,253 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="ToolkitXamarin.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
-
-    <ContentPage.Resources>
-        <Style x:Key="titleStyle" TargetType="Label">
-            <Setter Property="FontSize" Value="Subtitle" />
-            <Setter Property="TextColor" Value="DarkBlue" />
-        </Style>
-        <Style x:Key="labelStyle" TargetType="Label">
-            <Setter Property="Margin" Value="0,10" />
-            <Setter Property="HorizontalTextAlignment" Value="Center" />
-            <Setter Property="TextColor" Value="DarkOrange" />
-        </Style>
-        <Style x:Key="buttonStyle" TargetType="Button">
-            <Setter Property="HorizontalOptions" Value="Center" />
-            <Setter Property="WidthRequest" Value="150" />
-            <Setter Property="HeightRequest" Value="35" />
-            <Setter Property="BackgroundColor" Value="DarkBlue" />
-            <Setter Property="TextColor" Value="DarkOrange" />
-        </Style>
-        <Style x:Key="invalidEntryStyle" TargetType="Entry">
-            <Setter Property="TextColor" Value="Red" />
-        </Style>
-        <Style x:Key="validEntryStyle" TargetType="Entry">
-            <Setter Property="TextColor" Value="Green" />
-        </Style>
-    </ContentPage.Resources>
-
-    <ScrollView>
-
-        <StackLayout Margin="20,40">
-
-            <Label Style="{StaticResource titleStyle}" Text="AnimationBehavior" />
-
-            <Label Style="{StaticResource labelStyle}" Text="Scale">
-                <Label.Behaviors>
-                    <xct:AnimationBehavior Command="{Binding FinishedCommand}">
-                        <xct:AnimationBehavior.AnimationType>
-                            <xct:ScaleAnimation Scale="2" />
-                        </xct:AnimationBehavior.AnimationType>
-                    </xct:AnimationBehavior>
-                </Label.Behaviors>
-            </Label>
-
-            <Label Style="{StaticResource labelStyle}" Text="Fade">
-                <Label.Behaviors>
-                    <xct:AnimationBehavior Command="{Binding FinishedCommand}">
-                        <xct:AnimationBehavior.AnimationType>
-                            <xct:FadeAnimation />
-                        </xct:AnimationBehavior.AnimationType>
-                    </xct:AnimationBehavior>
-                </Label.Behaviors>
-            </Label>
-
-            <Label Style="{StaticResource labelStyle}" Text="Rotate">
-                <Label.Behaviors>
-                    <xct:AnimationBehavior Command="{Binding FinishedCommand}">
-                        <xct:AnimationBehavior.AnimationType>
-                            <xct:RotateAnimation Rotation="360" Duration="100" />
-                        </xct:AnimationBehavior.AnimationType>
-                    </xct:AnimationBehavior>
-                </Label.Behaviors>
-            </Label>
-
-            <Label Style="{StaticResource labelStyle}" Text="FlipHorizontal">
-                <Label.Behaviors>
-                    <xct:AnimationBehavior Command="{Binding FinishedCommand}">
-                        <xct:AnimationBehavior.AnimationType>
-                            <xct:FlipHorizontalAnimation />
-                        </xct:AnimationBehavior.AnimationType>
-                    </xct:AnimationBehavior>
-                </Label.Behaviors>
-            </Label>
-
-            <Label Style="{StaticResource labelStyle}" Text="FlipVerticalAnimation">
-                <Label.Behaviors>
-                    <xct:AnimationBehavior Command="{Binding FinishedCommand}">
-                        <xct:AnimationBehavior.AnimationType>
-                            <xct:FlipVerticalAnimation />
-                        </xct:AnimationBehavior.AnimationType>
-                    </xct:AnimationBehavior>
-                </Label.Behaviors>
-            </Label>
-
-            <Button Style="{StaticResource buttonStyle}" Text="Shake">
-                <Button.Behaviors>
-                    <xct:AnimationBehavior Command="{Binding FinishedCommand}" EventName="Clicked">
-                        <xct:AnimationBehavior.AnimationType>
-                            <xct:ShakeAnimation />
-                        </xct:AnimationBehavior.AnimationType>
-                    </xct:AnimationBehavior>
-                </Button.Behaviors>
-            </Button>
-
-            <Label Style="{StaticResource titleStyle}" Text="Event To Command Behavior" />
-
-            <Button Style="{StaticResource buttonStyle}" Text="Button">
-                <Button.Behaviors>
-                    <xct:EventToCommandBehavior Command="{Binding ClickedCommand}" EventName="Clicked" />
-                </Button.Behaviors>
-            </Button>
-
-            <Label Style="{StaticResource titleStyle}" Text="ImpliedOrderGridBehavior" />
-
-            <Grid
-                Margin="0,20"
-                ColumnDefinitions="*,*,*"
-                RowDefinitions="*,*">
-                <Grid.Behaviors>
+    x:Class="ToolkitXamarin.MainPage"
+    Title="Xamarin Comunity Toolkit">
+    <ContentPage.Content>
+        <Grid RowDefinitions="40,40,40">
+            <Grid.Behaviors>
                     <xct:ImpliedOrderGridBehavior />
-                </Grid.Behaviors>
-
-                <Label Style="{StaticResource labelStyle}" Text="0,0" />
-                <Label Style="{StaticResource labelStyle}" Text="1,0" />
-                <Label Style="{StaticResource labelStyle}" Text="2,0" />
-
-                <Label Style="{StaticResource labelStyle}" Text="0,1" />
-                <Label Style="{StaticResource labelStyle}" Text="1,1" />
-                <Label Style="{StaticResource labelStyle}" Text="2,1" />
-            </Grid>
-
-            <Label Style="{StaticResource titleStyle}" Text="MaskedBehavior" />
-
-            <Entry VerticalOptions="Center">
-                <Entry.Behaviors>
-                    <xct:MaskedBehavior Mask="XX-XX-XXXX" />
-                </Entry.Behaviors>
-            </Entry>
-
-            <Label Style="{StaticResource titleStyle}" Text="MaxLengthReachedBehavior" />
-
-            <Entry MaxLength="10" VerticalOptions="Center">
-                <Entry.Behaviors>
-                    <xct:MaxLengthReachedBehavior Command="{Binding MaxLengthReachedCommand}" />
-                </Entry.Behaviors>
-            </Entry>
-
-            <Label Style="{StaticResource titleStyle}" Text="UserStoppedTypingBehavior" />
-
-            <Entry VerticalOptions="Center">
-                <Entry.Behaviors>
-                    <xct:UserStoppedTypingBehavior
-                        Command="{Binding UserStoppedTypingCommand}"
-                        MinimumLengthThreshold="5"
-                        ShouldDismissKeyboardAutomatically="True"
-                        StoppedTypingTimeThreshold="1000" />
-                </Entry.Behaviors>
-            </Entry>
-
-            <Label Style="{StaticResource titleStyle}" Text="ValidationBehavior" />
-
-            <Label Style="{StaticResource labelStyle}" Text="CharactersValidationBehavior" />
-
-            <Entry VerticalOptions="Center">
-                <Entry.Behaviors>
-                    <xct:CharactersValidationBehavior
-                        CharacterType="Whitespace"
-                        InvalidStyle="{StaticResource invalidEntryStyle}"
-                        MaximumCharacterCount="2"
-                        MinimumCharacterCount="1"
-                        ValidStyle="{StaticResource validEntryStyle}" />
-                </Entry.Behaviors>
-            </Entry>
-
-            <Label Style="{StaticResource labelStyle}" Text="EmailValidationBehavior" />
-
-            <Entry VerticalOptions="Center">
-                <Entry.Behaviors>
-                    <xct:EmailValidationBehavior InvalidStyle="{StaticResource invalidEntryStyle}" ValidStyle="{StaticResource validEntryStyle}" />
-                </Entry.Behaviors>
-            </Entry>
-
-            <Label Style="{StaticResource labelStyle}" Text="MultiValidationBehavior" />
-
-            <Entry>
-                <Entry.Behaviors>
-                    <xct:MultiValidationBehavior x:Name="multiValidationBehavior" InvalidStyle="{StaticResource invalidEntryStyle}">
-                        <xct:CharactersValidationBehavior
-                            xct:MultiValidationBehavior.Error="UppercaseLetter"
-                            CharacterType="UppercaseLetter"
-                            MaximumCharacterCount="2"
-                            MinimumCharacterCount="1" />
-                        <xct:CharactersValidationBehavior
-                            xct:MultiValidationBehavior.Error="Digit"
-                            CharacterType="Digit"
-                            MinimumCharacterCount="4" />
-                        <xct:CharactersValidationBehavior
-                            xct:MultiValidationBehavior.Error="Whitespace"
-                            CharacterType="LowercaseLetter"
-                            MinimumCharacterCount="1" />
-                    </xct:MultiValidationBehavior>
-                </Entry.Behaviors>
-            </Entry>
-
-            <Label Style="{StaticResource labelStyle}" Text="{Binding Errors[0], Source={x:Reference multiValidationBehavior}}" />
-
-            <Label Style="{StaticResource labelStyle}" Text="NumericValidationBehavior" />
-
-            <Entry VerticalOptions="Center">
-                <Entry.Behaviors>
-                    <xct:NumericValidationBehavior
-                        InvalidStyle="{StaticResource invalidEntryStyle}"
-                        MaximumDecimalPlaces="3"
-                        MaximumValue="10.0"
-                        MinimumDecimalPlaces="1"
-                        MinimumValue="1.0"
-                        ValidStyle="{StaticResource validEntryStyle}" />
-                </Entry.Behaviors>
-            </Entry>
-
-            <Label Style="{StaticResource labelStyle}" Text="RequiredStringValidationBehavior" />
-
-            <Entry Placeholder="Si, estoy seguro de borrar mi cuenta" VerticalOptions="Center">
-                <Entry.Behaviors>
-                    <xct:RequiredStringValidationBehavior
-                        InvalidStyle="{StaticResource invalidEntryStyle}"
-                        RequiredString="Si, estoy seguro de borrar mi cuenta"
-                        ValidStyle="{StaticResource validEntryStyle}" />
-                </Entry.Behaviors>
-            </Entry>
-
-            <Label Style="{StaticResource labelStyle}" Text="TextValidationBehavior" />
-
-            <Entry VerticalOptions="Center">
-                <Entry.Behaviors>
-                    <xct:TextValidationBehavior
-                        InvalidStyle="{StaticResource invalidEntryStyle}"
-                        MaximumLength="8"
-                        MinimumLength="4"
-                        ValidStyle="{StaticResource validEntryStyle}" />
-                </Entry.Behaviors>
-            </Entry>
-
-            <Label Style="{StaticResource labelStyle}" Text="UriValidationBehavior" />
-
-            <Entry VerticalOptions="Center">
-                <Entry.Behaviors>
-                    <xct:UriValidationBehavior
-                        InvalidStyle="{StaticResource invalidEntryStyle}"
-                        UriKind="Absolute"
-                        ValidStyle="{StaticResource validEntryStyle}" />
-                </Entry.Behaviors>
-            </Entry>
-
-        </StackLayout>
-
-    </ScrollView>
-
+            </Grid.Behaviors>
+            <Label Text="Behaviors Example">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer
+                            Tapped="Tapped_Behaviors"
+                            NumberOfTapsRequired="1" />
+              </Label.GestureRecognizers>
+            </Label>
+            <Label Text="Converter Example">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer
+                            Tapped="Tapped_Converter"
+                            NumberOfTapsRequired="1" />
+              </Label.GestureRecognizers>
+            </Label>
+        </Grid>
+    </ContentPage.Content>
 </ContentPage>
